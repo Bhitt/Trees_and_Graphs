@@ -1,0 +1,13 @@
+Minimal Tree:
+	Given a sorted (increasing order) array with unique integer elements, write an algorithm to create
+	a binary search tree with minimal height.
+Hints:
+	#19: How would you ensure that about the same number of nodes are on the left of the root as on
+	the right?
+	#73: Finding the optimal item to insert seems inefficient. Can you use recursion instead and divide
+	this into subproblems?
+	#116: Imagine we had a createMinimalTree method that returns a minimal tree for a given array (but
+	for some strange reason doesn't operate on the root of the tree). Could you use this to operate
+	on the root of the tree? Could you write the base case for the function? Great! Then that's
+	basically the entire function.
+Good Questions:
