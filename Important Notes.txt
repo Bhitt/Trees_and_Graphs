@@ -1,0 +1,95 @@
+Tree:
+	Each tree has a root node.
+	The root node has zero or more child nodes.
+	Each child node has zero or more child nodes, and so on.
+	A tree cannot contain cycles.
+	A node is called a leaf if it has no children.
+Binary Tree:
+	A binary tree is a tree in which each node has up to two children.
+Binary Search Tree:
+	A binary search tree is a binary tree in which every node fits a specific ordering property: all
+		left descendants <= n < all right descendants. This is true for each node n.
+Balanced vs Unbalanced
+	A tree is balanced if it ensures O(log n) times for insert and find
+	Two common types of balanced trees are red-black trees and AVL trees.
+Complete Binary Trees:
+	A complete binary tree has every level of the tree fully filled, except for perhaps the last level.
+	To the extent that the last level is filled, it is filled left to right.
+Full Binary Trees:
+	Every node has either zero or two children. That is, no node has only one child.
+Perfect Binary Trees:
+	A perfect binary tree is both full and complete. All leaf nodes will be at the same level, and this
+	level has the maximum number of nodes.
+	Perfect binary trees have exactly 2^k - 1 nodes (where k is the number of levels)
+In-Order Traversal:
+	visit the left branch, then the current node, and finally the right branch
+	when performed on a binary search tree, it visits the nodes in ascending order
+Pre-Order Traversal:
+	visit the current node before its child nodes
+	the root is always the first node visited
+Post-Order Traversal:
+	visit the current node after its child nodes
+	the root is always visited last
+Binary Heaps (Min-Heaps and Max-Heaps):
+	A min-heap is a complete binary tree where each node is smaller than its children. The root is the
+		minimum element in the tree.
+	Insert:
+		When we insert into a min-heap, we always start by inserting the element at the bottom. We
+		insert at the rightmost spot so as to maintain the complete tree property. Then, we fix the
+		tree by swapping the new element with its parent, until we find an appropriate spot for the
+		element. We essentially bubble up the minimum element.
+		This takes O(log n) time, where n is the number of nodes in the heap.
+	Extract-Min:
+		Finding the min is always easy, it's at the top. The trickier part is how to remove it.
+		First, we remove the minimum element and swap it with the last element in the heap (the bottommost,
+		rightmost element). Then, we bubble down this element, swapping it with one of its children until
+		the min-heap property is restored.
+		Do we swap it with the left child or right child? That depends on their values. There's no inherent
+		ordering between the left and right element, but you'll need to take the smaller one in order
+		to maintain the min-heap ordering.
+		This will also take O(log n) time.
+	A max-heap is essentially equivalent to a min-heap, but the elements are in descending order rather
+		than ascending order.
+Tries (Prefix trees):
+	A trie is a variant of an n-ary tree in which characters are stored at each node. Each path down
+		the tree may represent a word.
+	The * nodes (sometimes called "null nodes") are often used to indicate complete words. The implementation
+		of these * nodes might be a special type of child (such as TerminatingTrieNode, which inherits
+		from TrieNode). Or, we could just use a boolean flag terminates within the parent node.
+	A node in a trie could have anywhere from 1 through ALPHABET_SIZE + 1 children (or, 0 through ALPHABET_SIZE
+		if a boolean flag is used instead of a * node).
+	A trie is commonly used to store the entire English language for quick prefix lookups.
+	A trie can check if a string is a valid prefix in O(K) time, where K is the length of the string.
+		(same as a hash table)
+Graphs:
+	A tree is a connected graph without cycles (but not all graphs are trees).
+	Directed edges are like one-way streets.
+	Undirected edges are like two-way streets.
+	Graphs may have cycles.
+	The graph may consist of multiple isolated subgraphs. If there is a path between every pair of
+		vertices, it is called a "connected graph".
+Adjacency List:
+	Adjacency lists are a very common way to represent a graph.
+	Every vertex (or node) stores a list of adjacent vertices. In an undirected graph, an edge like
+		(a, b) would be stored twice: once in a's adjacent vertices and once in b's adjacent vertices.
+Adjacency Matrices:
+	An adjacency matrix is an NxN boolean matrix (where N is the number of nodes), where a true value
+		at matrix[i][j] indicates an edge from node i to node j. (You can also use an integer matrix
+		with 0's and 1's).
+	In an undirected graph, an adjacency matrix will be symmetric. In a directed graph, it will not
+		(necessarily) be.
+	The same graph algorithms that are used on adjacency lists (breadth-first search, etc.) can be
+		performed with adjacency matrices, but they may be less efficient.
+Searching a graph:
+	Depth-first search(DFS): start at the root and explore each branch completely before moving on to
+		the next branch. Go deep before going wide.
+	Breadth-first search(BFS): start at the root and explore each neighbor before going on to any of
+		their children. Go wide before deep. 
+	DFS is preferred if we want to visit every node in the graph.
+	BFS is better for finding the shortest path.
+	Pre-order and other forms of tree traversal are a form of DFS. If implementing for a graph, you
+		must check that the node hasn't already been visited to avoid getting stuck in an infinite loop.
+	Bidirectional search is used to find the shortest path between a source and a destination. It operates
+		by essentially running two simultaneous BFS, one from each node. When the searches collide,
+		we have found a path.
+	
