@@ -1,0 +1,18 @@
+Check Subtree:
+	T1 and T2 are two very large binary trees, with T1 much bigger than T2. Create an algorithm to
+	determine if T2 is a subtree of T1.
+	A tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical
+	to T2. That is, if you cut off the tree at node n, the two trees would be identical.
+Hints:
+	#4: If T2 is a subtree of T1, how will its in-order traversal compare to T1's? What about its
+	pre-order and post-order traversal?
+	#11: The in-order traversals won't tell us much. The pre-order traversal is much more indicative.
+	#18: You may have concluded that if T2.preorderTraversal() is a substring of T1.preorderTraversal(),
+	then T2 is a subtree of T1. This is almost true, except that the trees could have duplicate values.
+	Suppose T1 and T2 have all duplicate values but different structures. The pre-order traversals will
+	look the same even though T2 is not a subtree of T1. How can you handle situations like this?
+	#31: Consider inserting a placeholder value into the pre-order traversal string whenever you reach
+	a null node.
+	#37: Alternatively, we can handle this problem recursively. Given a specific node within T1, can
+	we check to see if its subtree matches T2?
+Good Questions:
