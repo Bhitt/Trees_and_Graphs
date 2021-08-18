@@ -1,0 +1,27 @@
+Paths with Sum:
+	You are given a binary tree in which each node contains an integer value (which might be positive
+	or negative). Design an algorithm to count the number of paths that sum to a given value. The path
+	does not need to start or end at the root or a leaf, but it must go downwards (traveling only from
+	parent nodes to child nodes).
+Hints:
+	#6: Try simplifying the problem. What if the path had to start at the root?
+	#14: Don't forget that paths can overlap. For example, if you're looking for the sum 6, the paths
+	1 -> 3 -> 2 and 1 -> 3 -> 2 -> 4 -> -6 -> 2 are both valid.
+	#52: If each path had to start at the root, we could traverse all possible paths starting from the
+	root. We can track the sum as we go, incrementing totalPaths each time we find a path with our
+	target sum. Now, how do we extend this to paths that can start anywhere?
+	#68: To extend this to paths that start anywhere, we can just repeat this process for all nodes.
+	#77: The algorithm thus far is O(N log N) in a balanced tree. There is an optimization that is O(N).
+	#87: What work is duplicated so far?
+	#94: Given an array, how would you find all contiguous subsequences with a particular sum?
+	#103: We are looking for subarrays with sum targetSum. Observe that we can track in constant time
+	the value of runningSum<i>, where this is the sum from element 0 through element i. For a subarray
+	of element i through element j to have sum targetSum, runningSum<i-1> + targetSum must equal
+	runningSum<j>. Given that we can track the runningSum as we go, how can we quickly look up the number
+	of indices i where the previous equation is true? 
+	#108: Try using a hashtable that maps from a runningSum value to the number of elements with this
+	runningSum.
+	#115: Once you've solidified the algorithm to find all contiguous subarrays in an array with a given
+	sum, try to apply this to a tree. Rememeber that as you're traversing and modifying the hash table,
+	you may need to reverse the damage to the hash table as you traverse back up.
+Good Questions:
