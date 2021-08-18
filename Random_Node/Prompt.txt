@@ -1,0 +1,21 @@
+Random Node:
+	You are implementing a binary tree class from scratch which, in addition to insert, find, and
+	delete, has a method getRandomNode() which returns a random node from the tree. All nodes should
+	be equally likely to be chosen. Design and implement an algorithmfor getRandomNode(), and explain
+	how you would implement the rest of the methods.
+Hints:
+	#42: Be careful that to ensure that each node is equally likely and that your solution doesn't
+	slow down the speed of standard binary search tree algorithms.
+	#54: This is your implementation, which means you may need to store additional information.
+	#62: As a naive algorithm, can you use a tree traversal algorithm to implement this algorithm?
+	What is the runtime of this?
+	#75: Alternatively, you could pick a random depth to traverse to and then randomly traverse, 
+	stopping when you get to that depth. Does this work?
+	#89: Picking a random depth won't help much since there are more nodes at lower depths. Re-balancing
+	probabilities is possibly useful.
+	#99: Randoming between 1 & 3 doesn't work. Why not?
+	#112: We can pick a random number between 1 and size_of_tree. This resolves this issue for the root
+	but not the other nodes.
+	#119: We need to weight the probability of going left and right based on the number of nodes on
+	each side. How does this work exactly? How can we know the number of nodes?
+Good Question:
