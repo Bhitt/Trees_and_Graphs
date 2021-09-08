@@ -30,7 +30,7 @@ TreeNode ancestorHelper(TreeNode root, TreeNode p, TreeNode q){
 	}
 
 	boolean pIsOnLeft = covers(root.left, p);
-	boolean qIsOnLeft = cover(root.left, q);
+	boolean qIsOnLeft = covers(root.left, q);
 	if(pIsOnLeft != qIsOnLeft) { // Nodes are on different side
 		return root;
 	}
